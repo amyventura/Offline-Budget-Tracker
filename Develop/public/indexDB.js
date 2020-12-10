@@ -11,22 +11,26 @@ request.onupgradeneeded = ({ target }) => {
 
 // if not online check DB
 request.onsuccess = ({ target }) => {
+    // db = target.request
+    // check if app is online before reading db
 
 };
 
 // what happens if not online
 request.onerror = function(event) {
-
+    // show an error in console => console.log(err)
 };
 
 // save to db (called if offline - request fail)
 function saveRecord(record) {
-
+    // just saving a record
 };
 
 // back online, send to mongoDB and clear pending IndexDB 
 function checkDatabase(){
-
+    // make trans and store(key word) variables
+    // add a const(getE) for the store.getAll method
+    // use const getE.onsuccess = function (){ fetch => .then (return trans in json) .then (delete the records if successful (store.clear))}
 };
 
 // listen for app coming back online
