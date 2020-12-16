@@ -5,6 +5,9 @@ MIT
 A budget app that allows you to withdraw or deposit money on your budget app without 
 an internet connection. When the connection is back online the transaction history is add to the database.
 
+![image] (image1.png)
+![image] (image2.png)
+
 ## Table of Contents
 
 * [Installation](#installation)
