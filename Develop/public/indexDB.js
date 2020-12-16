@@ -11,9 +11,9 @@ request.onupgradeneeded = ({ target }) => {
 
 // if not online check DB
 request.onsuccess = ({ target }) => {
-    let db = target.request
+    db = target.request
     // check if app is online before reading db
-    if (navigator.online){
+    if (navigator.onLine){
         checkDatabase();
     }
 };
@@ -39,19 +39,26 @@ function checkDatabase(){
     // use const getE.onsuccess = function (){ fetch => .then (return trans in json) .then (delete the records if successful (store.clear))}
     const transaction = db.transaction(["pending"], "readwrite");
     const store = transaction.objectStore("pending");
-    const getAll = store.getAll();
+    const all = store.all();
 
-    getAll.onsuccess = function(){
-        if(getAll.result.length >0){
+    all.onsuccess = function(){
+        if(all.result.length >0){
             fetch("api/transaction/bulk", {
                 method: "POST",
-                body: JSON.stringify(getAll.result), 
+                body: JSON.stringify(all.result), 
                 headers: {
-
+                    Accept: "application/json, text/plain, */*", 
+                    "Content-Type": "application/json"
                 }
             })
+            .then(response => {
+                // delete record if successful in updating DB
+                const transaction = db.transaction(["pending"], "readwrite");
+                const store = transaction.objectStore("pending");
+                store.clear();
+            });
         }
-    }
+    };
 };
 
 // listen for app coming back online
