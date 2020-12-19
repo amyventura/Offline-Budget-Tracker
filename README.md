@@ -15,6 +15,7 @@ an internet connection. When the connection is back online the transaction histo
 * [Technologies](#Technologies)
 * [Contributing](#contributing)
 * [Tests](#tests)
+* [Deployed](#deployed)
 * [Questions](#questions)
 
 ## Installation
@@ -31,6 +32,9 @@ This project is open to contributions and suggestions.
 
 ## Tests
 Testing framework used: N/A.
+
+## Deployed
+Deployed app: https://secure-reaches-90319.herokuapp.com/.
 
 ## Questions
 GitHub Profile: https://github.com/amyventura. 
